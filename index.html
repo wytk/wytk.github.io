@@ -7,7 +7,7 @@
 67ef0b7c574635c6f8a5d5e0caf24944
 4cc52c6851db9ecdfb657ec705754e1b
 2b8cf305d8e8fc2ca657eda60aa0b6ea
-bda9e29dd901e25887f10719c7e277ce
+b7fcb8a5e29bcc2cd2f9213341a67901
 -->
 </head>
 <body>
@@ -73,7 +73,7 @@ color:#1080a0
 建议不要在百度浏览器或贴吧自带浏览器内使用此程序<br />
 部分手机浏览器使用时可能会因为兼容性问题导致无法保存图片，建议换谷歌浏览器或者使用电脑<br />
 <br />
-下载此网页，为我省点流量：<a id="bc" download="wytk.html">下载</a><br />
+下载此网页，为我省点流量：<a id="bc" download="wytk.html">下载</a>&ensp;<a href="https://github.com/wytk/wytk.github.io/archive/main.zip">下载2</a><br />
 下载之后是个html文件，(大概)可以用浏览器直接打开使用
 </div>
 </details>
@@ -237,7 +237,7 @@ cvd.fillStyle="#000000";
 cvd.fillText(w,4,14,wid-8);
 }
   
-return new File([dataURLtoBlob(en(mode,modelist,cvd.getImageData(0,0,wid,hit),word,IMGINFO[1]," ybzjdsd.gitee.io/wytk2"))],"download.png",{type:"image/png"})
+return new File([dataURLtoBlob(en(mode,modelist,cvd.getImageData(0,0,wid,hit),word,IMGINFO[1]," wytk.github.io"))],"download.png",{type:"image/png"})
 }
 function sol(){
 let cv=document.createElement("canvas");
@@ -246,6 +246,9 @@ cv.width=IMG2.width;
 cv.height=IMG2.height;
 cvd.drawImage(IMG2,0,0);
 let imgdata=cvd.getImageData(0,0,IMG2.width,IMG2.height);  
+if(imgdata.data[0]%8 !=0 || imgdata.data[1]%8 !=3 || imgdata.data[2]%8 ==0 || imgdata.data[2]%8 >5){
+throw "error"
+}
 let klist=de(imgdata.data[2]%8,imgdata);
 let file=new File([klist[1].buffer],utf8Decode(klist[0][1]),{type:klist[0][2]})
 return [file,utf8Decode(klist[0][1])]
